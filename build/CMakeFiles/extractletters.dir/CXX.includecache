@@ -15,6 +15,10 @@ vector
 -
 opencv2/opencv.hpp
 -
+opencv2/imgproc/imgproc.hpp
+/home/ash/projects/ExtractLetters/opencv2/imgproc/imgproc.hpp
+opencv2/highgui/highgui.hpp
+/home/ash/projects/ExtractLetters/opencv2/highgui/highgui.hpp
 boost/filesystem.hpp
 /home/ash/projects/ExtractLetters/boost/filesystem.hpp
 
