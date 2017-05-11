@@ -53,7 +53,7 @@ int main(int argc, char** argv )
         cv::minMaxLoc( norm_res, &minVal, &maxVal, &minLoc, &maxLoc, cv::Mat() );
         matchLoc = minLoc; 
 
-        cv::rectangle( image_gr, matchLoc, cv::Point( matchLoc.x + templ_gr.cols , matchLoc.y + templ_gr.rows ), cv::Scalar::all(0), 1, 1, 0 );
+        cv::rectangle( image, matchLoc, cv::Point( matchLoc.x + templ_gr.cols , matchLoc.y + templ_gr.rows ), cv::Scalar::all(0), 1, 1, 0 );
 
         std::cout << matchLoc.x << " " << matchLoc.y << std::endl;
         std::cout << (image_gr.cols) << " " << (image_gr.rows) << std::endl;
@@ -70,7 +70,7 @@ int main(int argc, char** argv )
 
     }
     cv::namedWindow("Display Image", cv::WINDOW_AUTOSIZE );
-    cv::imshow("Display Image", image_gr);
+    cv::imshow("Display Image", image);
 
     // cv::namedWindow("Template Image", cv::WINDOW_AUTOSIZE );
     // cv::imshow("Template Image", templ_gr);
