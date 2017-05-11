@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ash/projects/ExtractLetters/main.cpp
+stdio.h
+-
+string
+-
+vector
+-
+opencv2/opencv.hpp
+-
+boost/filesystem.hpp
+/home/ash/projects/ExtractLetters/boost/filesystem.hpp
+

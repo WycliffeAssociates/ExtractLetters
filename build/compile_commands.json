@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/ash/projects/ExtractLetters/build",
+  "command": "/usr/bin/c++    -I/usr/include/opencv  -g   -o CMakeFiles/ExtractLetters.dir/main.cpp.o -c /home/ash/projects/ExtractLetters/main.cpp",
+  "file": "/home/ash/projects/ExtractLetters/main.cpp"
+}
+]
