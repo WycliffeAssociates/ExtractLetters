@@ -15,11 +15,14 @@ void rectanglifyImage(cv::Mat& image, cv::Mat& templ, int r, int g, int b, std::
 
 int main(int argc, char** argv )
 {
+    //std::cout << argv[1] << " " << argv[2] << std::endl;
     bfs::path doc(argv[1]);
     bfs::path templates_dir(argv[2]);
     std::vector<std::string> templates;
     std::vector<int> locations;
     std::vector<int> values;
+
+    //std::cout << "initialized vectors" << std::endl;
 
     bfs::directory_iterator end_itr; // default construction yields past-the-end
     for ( bfs::directory_iterator itr( templates_dir );
@@ -27,20 +30,20 @@ int main(int argc, char** argv )
             ++itr )
     {
         std::string name = itr->path().string();
-        std::cout << name << std::endl;
+        //std::cout << name << std::endl;
         templates.push_back(name);
     }
 
     cv::Mat image;
     //typed
     image = cv::imread(doc.string());
-    std::cout << "Read base image" << std::endl;
+    //std::cout << "Read base image" << std::endl;
 
     std::vector<cv::Mat> templ_imgs;
     for(int i = 0; i < templates.size(); i++) {
         templ_imgs.push_back(cv::imread(templates[i]));
     }
-    std::cout << "Read template images" << std::endl;
+    //std::cout << "Read template images" << std::endl;
 
 
     for(int i = 0; i < templ_imgs.size(); i++) {
@@ -62,10 +65,10 @@ int main(int argc, char** argv )
 
     std::cout << j << std::endl;
 
-    cv::namedWindow("Display Image", cv::WINDOW_AUTOSIZE );
-    cv::imshow("Display Image", image);
+    //cv::namedWindow("Display Image", cv::WINDOW_AUTOSIZE );
+    //cv::imshow("Display Image", image);
 
-    cv::waitKey(0);
+    //cv::waitKey(0);
 
     return 0;
 }
@@ -99,11 +102,11 @@ void rectanglifyImage(cv::Mat& image, cv::Mat& templ, int r, int g, int b, std::
         values.push_back(minVal);
         cv::rectangle( image, matchLoc, cv::Point( matchLoc.x + templ_gr.cols , matchLoc.y + templ_gr.rows ), cv::Scalar(r,g,b), 1, 1, 0 );
 
-        std::cout << matchLoc.x << " " << matchLoc.y << std::endl;
-        std::cout << (minVal) << std::endl;
-        // std::cout << (image_gr.cols) << " " << (image_gr.rows) << std::endl;
-        // std::cout << result.at<float>(matchLoc.x, matchLoc.y) << std::endl;
-        // std::cout << (templ_gr.cols) << " " << (templ_gr.rows) << std::endl;
+        //std::cout << matchLoc.x << " " << matchLoc.y << std::endl;
+        //std::cout << (minVal) << std::endl;
+        //// std::cout << (image_gr.cols) << " " << (image_gr.rows) << std::endl;
+        //// std::cout << result.at<float>(matchLoc.x, matchLoc.y) << std::endl;
+        //// std::cout << (templ_gr.cols) << " " << (templ_gr.rows) << std::endl;
         for (int xx = matchLoc.x; xx < templ_gr.cols + matchLoc.x; xx++) {
             for(int yy = matchLoc.y; yy < templ_gr.rows + matchLoc.y; yy++) {
                 image_gr.at<uchar>(yy,xx) = 255;
